@@ -1,0 +1,18 @@
+C:\Users\trist\OneDrive\Documents\Visual Studio 2015\Projects\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.exe.config
+C:\Users\trist\OneDrive\Documents\Visual Studio 2015\Projects\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.exe
+C:\Users\trist\OneDrive\Documents\Visual Studio 2015\Projects\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.pdb
+C:\Users\trist\OneDrive\Documents\Visual Studio 2015\Projects\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.csprojResolveAssemblyReference.cache
+C:\Users\trist\OneDrive\Documents\Visual Studio 2015\Projects\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.exe
+C:\Users\trist\OneDrive\Documents\Visual Studio 2015\Projects\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.pdb
+C:\Users\trist\Desktop\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.exe.config
+C:\Users\trist\Desktop\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.exe
+C:\Users\trist\Desktop\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.pdb
+C:\Users\trist\Desktop\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.exe
+C:\Users\trist\Desktop\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.pdb
+C:\Users\trist\Desktop\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.csprojResolveAssemblyReference.cache
+C:\Users\trist\Desktop\Games I Made\Finished\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.exe.config
+C:\Users\trist\Desktop\Games I Made\Finished\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.exe
+C:\Users\trist\Desktop\Games I Made\Finished\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.pdb
+C:\Users\trist\Desktop\Games I Made\Finished\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.exe
+C:\Users\trist\Desktop\Games I Made\Finished\Ascii-Heroes\Ascii-Heroes\bin\Debug\Ascii-Heroes.pdb
+C:\Users\trist\Desktop\Games I Made\Finished\Ascii-Heroes\Ascii-Heroes\obj\Debug\Ascii-Heroes.csprojResolveAssemblyReference.cache

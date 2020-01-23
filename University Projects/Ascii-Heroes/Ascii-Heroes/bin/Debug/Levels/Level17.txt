@@ -1,0 +1,10 @@
+8
+52
+[              X         X      X            X    ]
+[  @     X       X   X     X           X   X    X ]
+[           X     X   X          X      X         ]
+[     X         X          X       X       X      ]
+[      X    X    X     X        X              X  ]
+[  X      X           X       X        X   X      ]
+[      X        X   X     X       X           X   ]
+[           X        X      X        X     X      ]
