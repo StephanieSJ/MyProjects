@@ -1,0 +1,166 @@
+﻿@model Project.Models.DashboardModel
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+@{
+    if (Model.currentRoute == null)
+    {
+        <div class="row">
+            <h3>
+                Route Progress:
+            </h3>
+            <p>
+                There is currently no route in progress.
+            </p>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <h3>
+                @Html.DisplayFor(modelItem => Model.currentRoute.routeName) Progress:
+            </h3>
+            <p>
+                @Model.distance  km / @Model.currentRoute.distanceCovered km
+            </p>
+            @{
+                double percent = Math.Truncate((Model.distance * 1.0 / Model.currentRoute.distanceCovered) * 100);
+                string barColor = "progress-bar-danger";
+                if (percent < 33)
+                {
+                    barColor = "progress-bar-danger";
+                }
+                else if (percent < 66)
+                {
+                    barColor = "progress-bar-warning";
+                }
+                else if (percent < 99)
+                {
+                    barColor = "progress-bar-info";
+                }
+                else
+                {
+                    barColor = "progress-bar-success";
+                }
+            }
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped @barColor active" role="progressbar" style="min-width:2em; max-width:100%; width:@percent%;">
+                    @percent%
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<hr />
+
+<div class="row">
+    <div class="col-lg-3">
+        <h3>Recent Achievements</h3>
+        <table class="table">
+            @foreach (var currentAchieve in Model.achievements)
+            {
+                <tr>
+                    <td>
+                        @{
+                            string imgPath = "";
+                            switch (currentAchieve.achievementDifficulty)
+                            {
+                                case "Gold":
+                                    {
+                                        imgPath = "~/Content/Images/gold-medal.png";
+                                        break;
+                                    }
+                                case "Silver":
+                                    {
+                                        imgPath = "~/Content/Images/silver-medal.png";
+                                        break;
+                                    }
+                                case "Bronze":
+                                    {
+                                        imgPath = "~/Content/Images/bronze-medal.png";
+                                        break;
+                                    }
+                            }
+                        }
+                        <img src="@Url.Content(@imgPath)" width="50" alt="Achievement Medal Picture" />
+                    </td>
+                    <td>
+                        <h4>@Html.DisplayFor(modelItem => currentAchieve.achievementName)</h4>
+                        <h5 class="card-text">@Html.DisplayFor(modelItem => currentAchieve.achievementDescription)</h5>
+                        <h6 class="card-title">@Html.DisplayFor(modelItem => currentAchieve.achievementDifficulty)</h6>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+    <div class="col-lg-6">
+        @if (Model.currentPOI != null)
+        {
+            <h3>
+                @Html.DisplayFor(modelItem => Model.currentPOI.POI_Name)
+            </h3>
+            <p>
+                @Html.DisplayFor(modelItem => Model.currentPOI.POI_Information)
+            </p>
+            <p>
+                @if (@ViewBag.Image != null)
+                {
+                    <img src="@ViewBag.Image" alt="Point of Interest Image" width="400" />
+                }
+            </p>
+        }
+        else
+        {
+            <h3>
+                Point of Interest
+            </h3>
+            <p>
+                No point of interest has been reached for the current route.
+            </p>
+        }
+    </div>
+
+    <div class="col-lg-3">
+        <h3>Route Leaderboard</h3>
+        <table class="table">
+            <tr>
+                <td align="center">
+                    <b>
+                        Position
+                    </b>
+                </td>
+                <td align="center">
+                    <b>
+                        Name
+                    </b>
+                </td>
+                <td align="center">
+                    <b>
+                        Distance (km)
+                    </b>
+                </td>
+            </tr>
+            @{
+                int position = 1;
+                foreach (var person in Model.leaderboard)
+                {
+                    <tr>
+                        <td align="center">
+                            @position
+                        </td>
+                        <td align="center">
+                            @(person.participantFirstName + " " + person.participantSurname)
+                        </td>
+                        <td align="right">
+                            @Html.DisplayFor(modelItem => person.participantDistance)
+                        </td>
+                    </tr>
+                    position++;
+                }
+            }
+        </table>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+﻿@model Project.Models.Achievement
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Achievement</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.achievementName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.achievementName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.achievementDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.achievementDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.achievementDifficulty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.achievementDifficulty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.achievementCategory)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.achievementCategory)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" />
+        </div>
+    }
+
+    <div>
+        @*@Html.ActionLink("Back to List", "Index")*@
+        <a href="@Url.Action("Manage", "Achievement")" class="btn btn-default">
+            Return to manage achievements
+            @*<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>*@
+        </a>
+    </div>
+</div>

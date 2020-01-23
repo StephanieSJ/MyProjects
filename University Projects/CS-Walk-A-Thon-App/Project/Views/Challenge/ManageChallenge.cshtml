@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Project.Models.Challenge>
+    @{
+    ViewBag.Title = "Manage Challenge";
+    int i = 0;
+    bool isItems = false;
+    }
+
+    <h2>Manage Challenges</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        @foreach (var item in Model)
+        {
+        isItems = true;
+        if (i == 0)
+        {
+        <tr>
+            <th>
+                <h4>Achievement</h4>
+            </th>
+            <th>
+                <h4>Challenge</h4>
+            </th>
+            <th>
+                <h4>Description</h4>
+            </th>
+            <th>
+                <h4>Distance</h4>
+            </th>
+            <th>
+                <h4>Starting Time</h4>
+            </th>
+            <th>
+                <h4>Ending Time</h4>
+            </th>
+            <th>
+                <h4>Gender</h4>
+            </th>
+            <th>
+                <h4>Lowest age limit</h4>
+            </th>
+            <th>
+                <h4>Highest age limit</h4>
+            </th>
+            <th></th>
+        </tr>
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Achievement.achievementName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeDistance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeTimeStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeTimeEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeGender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeAgeLowerBound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.challengeAgeUpperBound)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.challengeID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.challengeID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.challengeID })
+            </td>
+        </tr>
+        i++;
+        }
+    </table>
+    @if(!isItems) {
+    <p>There are no current Challenges</p>
+    }

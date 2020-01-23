@@ -1,0 +1,496 @@
+fileFormatVersion: 2
+guid: 01f23b6adabd8d341a0c3943b5032075
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ArmLeft
+    21300002: ArmRight
+    21300004: Body
+    21300006: EarLeft
+    21300008: EarRight
+    21300010: Eyebrow
+    21300012: EyeRight
+    21300014: EyeLeft
+    21300016: LegRight
+    21300018: LegLeft
+    21300020: Nostril
+    21300022: Head
+    21300024: HeadDetails
+    21300026: RhinoFrontSpritesheet_0
+    21300028: Rhino
+  externalObjects: {}
+  serializedVersion: 7
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 2
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - serializedVersion: 2
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ArmLeft
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 184
+        width: 40
+        height: 37
+      alignment: 9
+      pivot: {x: 0.1565231, y: 0.7999177}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 12, y: 18.5}
+        - {x: -20, y: 18.5}
+        - {x: -20, y: -8.5}
+        - {x: -17, y: -18.5}
+        - {x: 15, y: -18.5}
+        - {x: 20, y: -6.5}
+        - {x: 20, y: 16.5}
+        - {x: 19, y: 17.5}
+      tessellationDetail: 0.2
+      bones: []
+      spriteID: 29b0c794ce22d66479ba5e662bed8eb7
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ArmRight
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 194
+        width: 29
+        height: 27
+      alignment: 9
+      pivot: {x: 0.84621006, y: 0.7544273}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -8.5, y: 13.5}
+        - {x: -14.5, y: 7.5}
+        - {x: -14.5, y: -6.5}
+        - {x: -8.5, y: -13.5}
+        - {x: 12.5, y: -13.5}
+        - {x: 14.5, y: -8.5}
+        - {x: 14.5, y: 13.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53bb326ce495e0445ba43ebb9edf5f5d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Body
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 113
+        width: 91
+        height: 108
+      alignment: 9
+      pivot: {x: 0.4827988, y: 0.06519035}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 45.5, y: -12}
+        - {x: 25.5, y: 19}
+        - {x: 18.5, y: 45}
+        - {x: 11.5, y: 54}
+        - {x: -4.5, y: 54}
+        - {x: -32.5, y: 19}
+        - {x: -45.5, y: -7}
+        - {x: -45.5, y: -46}
+        - {x: -43.5, y: -54}
+        - {x: 11.5, y: -54}
+        - {x: 35.5, y: -48}
+        - {x: 44.5, y: -40}
+        - {x: 45.5, y: -36}
+      tessellationDetail: 0.19
+      bones: []
+      spriteID: f04c6a4579b807e4098bcd772ba17c0b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarLeft
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 193
+        width: 29
+        height: 28
+      alignment: 9
+      pivot: {x: 0.23011886, y: 0.1459416}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -4.5, y: 14}
+        - {x: -14.5, y: 5}
+        - {x: -14.5, y: -14}
+        - {x: 1.5, y: -14}
+        - {x: 9.5, y: -3}
+        - {x: 14.5, y: 8}
+        - {x: 14.5, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 984d64d04440f464ea74090a7f67aabd
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EarRight
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 200
+        width: 10
+        height: 21
+      alignment: 9
+      pivot: {x: 0.8603546, y: 0.111041844}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -5, y: 10.5}
+        - {x: -5, y: -5.5}
+        - {x: 0, y: -10.5}
+        - {x: 5, y: -10.5}
+        - {x: 5, y: 8.5}
+        - {x: 4, y: 10.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11896ddb9fd3eba4898fe716c9f449a4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Eyebrow
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 207
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a629f957fba3f344e88518584e09a00f
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeRight
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 202
+        width: 10
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba76c09cef10f5843a33db63abc85c11
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EyeLeft
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 196
+        width: 14
+        height: 25
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bd5242f4af23c64ebbee2d401361e1e
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LegRight
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 176
+        width: 20
+        height: 18
+      alignment: 9
+      pivot: {x: 0.5720703, y: 0.8870494}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -7, y: 9}
+        - {x: -10, y: 3}
+        - {x: -10, y: -9}
+        - {x: 6, y: -9}
+        - {x: 10, y: 1}
+        - {x: 10, y: 9}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23231a4655577894b9940feaa46266e4
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: LegLeft
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 175
+        width: 19
+        height: 19
+      alignment: 9
+      pivot: {x: 0.44942275, y: 0.89196616}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -9.5, y: 9.5}
+        - {x: -9.5, y: 3.5}
+        - {x: -2.5, y: -9.5}
+        - {x: 9.5, y: -9.5}
+        - {x: 9.5, y: 8.5}
+        - {x: 7.5, y: 9.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eb048827b131f34ca530803bb277f72
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Nostril
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 179
+        width: 17
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd40aacc6d36353458a8e13a19d233ee
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Head
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 104
+        height: 102
+      alignment: 9
+      pivot: {x: 0.84115857, y: 0.3465378}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 44, y: 38}
+        - {x: 11, y: 39}
+        - {x: -27, y: 13}
+        - {x: -34, y: 24}
+        - {x: -28, y: 48}
+        - {x: -29, y: 50}
+        - {x: -31, y: 50}
+        - {x: -37, y: 45}
+        - {x: -50, y: 21}
+        - {x: -52, y: 15}
+        - {x: -52, y: -26}
+        - {x: -49, y: -35}
+        - {x: -28, y: -51}
+        - {x: 15, y: -51}
+        - {x: 32, y: -34}
+        - {x: 52, y: -6}
+        - {x: 52, y: 34}
+      tessellationDetail: 0.17
+      bones: []
+      spriteID: 773dd5d370c3b1647acd5a1f50ea1d0c
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeadDetails
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 1
+        width: 116
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: 16, y: 55}
+        - {x: -31, y: 8}
+        - {x: -32, y: 0}
+        - {x: -32, y: -9}
+        - {x: -32, y: -7}
+        - {x: -35, y: 44}
+        - {x: -38, y: 47}
+        - {x: -58, y: 32}
+        - {x: -58, y: -55}
+        - {x: 34, y: -55}
+        - {x: 58, y: 21}
+        - {x: 58, y: 55}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 50397054fe7a6884693edc6ad1fe8c49
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RhinoFrontSpritesheet_0
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 72
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a597e013795207e4c9e6b2168a50ab8d
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Rhino
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 49
+        width: 156
+        height: 172
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d9aeae44e65ddf408316079b24b9e0a
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: c0ad8bf8c0cda234992b8f92a5197aef
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

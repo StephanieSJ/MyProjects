@@ -1,0 +1,101 @@
+﻿@model Project.Models.RouteSection
+
+@{
+    /**/
+
+    ViewBag.Title = "CreateRouteSection";
+}
+
+<h2>Create Route Sections for @ViewBag.routeName</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>RouteSection</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @* HIDDEN VALUES USED TO STORE THINGS NOT TO BE CHANGED BY USER *@
+
+        @Html.HiddenFor(model => model.routeID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sectionStart, "Section Start", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sectionStart, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sectionStart, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sectionEnd, "Section End", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sectionEnd, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sectionEnd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.sectionDistance, "Section Distance", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.sectionDistance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.sectionDistance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.POI_ID, "Point Of Interest", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("POI_ID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.POI_ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Route.routeID, "Route ID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.routeID, ViewBag.RouteSection as SelectList, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Route.routeID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add A Route Section" class="btn btn-default" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <a href="@Url.Action("ManageRoute", "Route")" class="btn btn-default">
+                Finish Creating Route
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+            </a>
+        </div>
+        @*
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="CreateRouteSection" class="btn btn-default" />
+                </div>
+            </div>*@
+    </div>
+
+    @*@Html.Label("Section Start"); <br /><br />
+        @Html.TextBox("SectionStart");<br /><br />
+        @Html.Label("Section End");<br /><br />
+        @Html.TextBox("SectionEnd");<br /><br />
+        @Html.Label("Section Distance");<br /><br />
+        @Html.TextBox("Distance");<br /><br />
+        @Html.Label("Route ID");<br /><br />
+        @Html.DropDownListFor(model => model.routeID, ViewBag.RouteSection as SelectList, new { @class = "form-control" })*@
+    @*<input type="submit" value="CreateRouteSection" class="btn btn-default" />*@
+}
+
+
+
+@*<div>
+        @Html.ActionLink("Add Section", "CreateRouteSection")
+    </div>
+    <div>
+        @Html.ActionLink("Back to List", "ViewRoute")
+    </div>*@

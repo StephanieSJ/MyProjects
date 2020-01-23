@@ -1,0 +1,98 @@
+﻿@model Project.Models.Challenge
+@{
+    ViewBag.Title = "Create Challenge";
+}
+<h2>Create Challenge</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Challenge</p>
+                @Html.EditorFor(model => model.challengeName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.challengeName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Description</p>
+                @Html.EditorFor(model => model.challengeDescription, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.challengeDescription, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Distance</p>
+                @Html.EditorFor(model => model.challengeDistance, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.challengeDistance, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Starting Time</p>
+                @Html.EditorFor(model => model.challengeTimeStart, new { htmlAttributes = new { @class = "form-control", placeholder = "yyyy/mm/dd" } })
+                @Html.ValidationMessageFor(model => model.challengeTimeStart, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Ending Time</p>
+                @Html.EditorFor(model => model.challengeTimeEnd, new { htmlAttributes = new { @class = "form-control", placeholder = "yyyy/mm/dd" } })
+                @Html.ValidationMessageFor(model => model.challengeTimeEnd, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Gender</p>
+                @Html.DropDownListFor(model => model.challengeGender, new SelectList(ViewBag.GenderList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.challengeGender, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Lowest age limit</p>
+                @Html.EditorFor(model => model.challengeAgeLowerBound, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.challengeAgeLowerBound, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Highest age limit</p>
+                @Html.EditorFor(model => model.challengeAgeUpperBound, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.challengeAgeUpperBound, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                <p>Achievement</p>
+                @Html.DropDownList("achievementID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.achievementID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                @Html.ActionLink("Create Achievement", "Create", "Achievement")
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back to List", "ManageChallenge")
+</div>
+@section scripts{
+    <script type="text/javascript">//...
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy', //choose the date format you prefer
+            language: "en-ZA",
+            orientation: 'left bottom'
+        });</script>
+}

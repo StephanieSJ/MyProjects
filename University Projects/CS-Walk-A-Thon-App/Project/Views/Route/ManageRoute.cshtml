@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Project.Models.Route>
+
+@{
+	ViewBag.Title = "Manage Route";
+}
+
+<h2>Manage Route</h2>
+
+<p>
+	@Html.ActionLink("Create New", "Create")
+</p>
+<form asp-controller="Movies" asp-action="Index">
+	<p>
+		Route Name: <input type="text" name="SearchString">
+		<input type="submit" value="Search" />
+	</p>
+</form>
+<table class="table">
+	<tr>
+		<th>
+			Achievement Name
+		</th>
+		<th>
+			Route Name
+		</th>
+		<th>
+			Route Start
+		</th>
+		<th>
+			Route End
+		</th>
+		<th>
+			Distance
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.Achievement.achievementName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.routeName)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.routeStart)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.routeEnd)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.distanceCovered)
+			</td>
+			<td>
+				@Html.ActionLink("Edit Route", "EditRoute", new { id = item.routeID }) |
+				@Html.ActionLink("Details", "RouteDetails", new { id = item.routeID }) |
+			</td>
+		</tr>
+	}
+
+</table>
+<div>
+	@Html.ActionLink("Manage Route Sections", "ManageSection")
+</div>

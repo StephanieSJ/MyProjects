@@ -1,0 +1,131 @@
+﻿@model Project.Models.User
+
+@{
+    ViewBag.Title = "Profile";
+}
+
+<h2>Profile</h2>
+
+<div class="profile">
+    <h3>Summary</h3>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.profilePictureID)
+        </dt>
+        <dd>
+            <div id="profilePicture">
+                <img alt="Profile Picture" width="200" src="@ViewBag.Image" />
+            </div>
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.surname)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yearOfStudy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.yearOfStudy)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.degreeFaculty)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.degreeFaculty)
+        </dd>
+    </dl>
+    <a href="@Url.Action("EditProfile", "Home", new { id = Model.userID })" class="btn btn-default">
+        Edit Profile
+        @*<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>*@
+    </a>
+    <hr />
+
+    <h3>Top Achievements</h3>
+    <table class="table">
+        @*@foreach (var item in Model.Achievements)*@
+        @for (int x = 0; x < Model.Achievements.Count(); x++)
+        {
+            var item = Model.Achievements.ElementAt(x);
+            string imgPath = "";
+            switch (item.achievementDifficulty)
+            {
+                case "Gold":
+                    imgPath = "~/Content/Images/gold-medal.png";
+                    break;
+                case "Silver":
+                    imgPath = "~/Content/Images/silver-medal.png";
+                    break;
+                case "Bronze":
+                    imgPath = "~/Content/Images/bronze-medal.png";
+                    break;
+            }
+            <tr>
+                <td>
+                    <div class="achievementMedal">
+                        <img alt="Achievement Medal Picture" width="50" src="@Url.Content(@imgPath)" />
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.achievementName)
+                </td>
+            </tr>
+        }
+    </table>
+    <a href="@Url.Action("ViewAchievements", "Home", new { id = Model.userID })" class="btn btn-default">
+        View Achievements
+        @*<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>*@
+    </a>
+    <hr />
+
+    <h3>Challenges Currently participating in:</h3>
+    <hr />
+    <h4>Solo Challenges</h4>
+    <ul class="list-group">
+        @foreach (var item in Model.UserChallenges)
+        {
+            <li class="list-group-item">@item.Challenge.challengeName</li>
+        }
+    </ul>
+    <hr />
+    <h4>Group Challenges</h4>
+    <ul class="list-group">
+        @foreach (var item in Model.UserGroupChallenges)
+        {
+            <li class="list-group-item">@item.GroupChallenge.groupChallengeName</li>
+        }
+    </ul>
+    <hr />
+
+    <h3>Total distance Travelled : @Html.DisplayFor(model => model.totDistanceTravelled)</h3>
+    <hr />
+    <h3>Distance Log History</h3>
+    <ul class="list-group">
+        @foreach (var item in Model.DistanceLogs)
+        {
+            <li class="list-group-item">Logged @item.logDistance km on @item.dateTimeCaptured</li>
+        }
+    </ul>
+
+
+</div>
+<p>
+    <a href="@Url.Action("Index", "Home")" class="btn btn-default">
+        Return To Dashboard
+        @*<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>*@
+    </a>
+</p>
+
+<div hidden>Icons made by <a href="https://www.flaticon.com/authors/pixel-buddha" title="Pixel Buddha">Pixel Buddha</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

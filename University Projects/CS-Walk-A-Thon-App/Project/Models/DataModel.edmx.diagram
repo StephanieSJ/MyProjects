@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5f091805878a4ea2a40b1fb3a1aeebc8" Name="Diagram1">
+        <EntityTypeShape EntityType="WalkAThonModel.Achievement" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.Challenge" Width="1.5" PointX="3" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.DistanceLog" Width="1.5" PointX="10.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.GroupChallenge" Width="1.5" PointX="3" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.Image" Width="1.5" PointX="5.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.PointOfInterest" Width="1.5" PointX="7.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.Route" Width="1.5" PointX="3" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.RouteLeaderboard" Width="1.5" PointX="10.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.RouteSection" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.User" Width="1.5" PointX="8" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.UserChallenge" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="WalkAThonModel.UserGroupChallenge" Width="1.5" PointX="5.25" PointY="9.375" IsExpanded="true" />
+        <AssociationConnector Association="WalkAThonModel.FK_Challenge_Achievement" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_GroupChallenge_Achievement" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_Route_Achievement" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_UserChallenge_Challenge" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_DistanceLogs_User" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_UserGroupChallenge_GroupChallenge" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_Image_PointOfInterest" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_Image_User" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_Route_RouteSection" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_RouteLeaderboard_User" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_User_UserChallenge" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.FK_User_UserGroupChallenge" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.SectionPOI" ManuallyRouted="false" />
+        <AssociationConnector Association="WalkAThonModel.UserAchievement" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

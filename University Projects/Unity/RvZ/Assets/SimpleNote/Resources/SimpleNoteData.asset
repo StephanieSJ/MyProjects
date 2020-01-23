@@ -1,0 +1,190 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72588ddff5e67bb4c9ed353e3eeae16a, type: 3}
+  m_Name: SimpleNoteData
+  m_EditorClassIdentifier: 
+  notes:
+  - title: 'Version 6: Multiple Scenes + Persisting Data'
+    note: '1) Created Main scene
+
+      Created a new scene and added layers of sprites, adjusting the order in the
+      layer, to create the sunset and logo. A 9-slice (also known as 9-patch) sprite
+      was created to have a custom background for the play button.
+
+
+      When the scene starts, the highscore saved is loaded and displayed in the highscore
+      text control.
+
+
+      Attached a click handler to the play button to transition to the Level scene.
+
+
+      Added scenes to the Build Settings with this scene numbered as 0 and the Level
+      scene numbered as 1.
+
+
+      2) Updated Level scene
+
+      Updated scene to end the level when there are no shots left and a given amount
+      of time has passed. Once this has happened, the current score is saved as the
+      new high score (if it was higher) and the player is returned to the Main scene.
+
+
+      3) Created a Ragdoll Rhino
+
+      Created a hierarchy of limbs, adjusted the sprite layer order to ensure that
+      the parts were drawn in the correct order. Added Rigidbody2D and Polygon Collider
+      2D components to each part that is to move under the control of the physics
+      2D engine.
+
+
+      The body part is the root of the hierarchy and the head, arms and legs are attached
+      to it. The ears are attached to the head.
+
+
+      For each part attached to another (head, ears, arms and legs) a Hinge Joint
+      2D is added. By default, the pivots created in the Collider Editor (with the
+      Sprite Editor) is used at the moving part, although you can edit this if you
+      want. For each hinge, switch on <i>use limits</i> and set the lower and upper
+      angles.
+
+
+      Set the masses of each of the parts with colliders. Watch https://youtu.be/93yUC5ASdv8
+      for a tutorial on how to create ragdolls.
+
+
+      Attached the Launchable component to the body. Set the values. Filled in the
+      total mass of the parts in the <i>launchable mass</i> field.'
+  - title: 'Version 5: UI & Unity Events'
+    note: '1) Added HUD
+
+      A simple HUD is added to the screen with text controls for the displaying the
+      current score and the number of remaining shots that can be made.
+
+
+      2) Added a Level Manager object
+
+      This game object contains the Game State, which is responsible for tracking
+      the current score and the number of shots that can be made. Provided it with
+      references to the HUD text controls.
+
+
+      3) Updated Breakable component
+
+      Updated to component to award points for breaking an object.
+
+
+      4) Unity Events
+
+      Read <b>Scripting > Scripting OVerview > Unity Events</b> for more details on
+      how these events work. They allow handler methods (and parameters) to be called
+      in response to certain events. These handler methods can be attached, at editor
+      time, to Unity Events. The Trigger Event component attached to the X game object
+      allows points and shots to be awarded to the player.'
+  - title: 'Version 4: Breaking stuff!!'
+    note: '1) Creating a Breakable component
+
+      When two colliders come in contact with one another, the OnCollision2D method
+      is called. In this method, the object''s toughness is reduced by the "force"
+      of the collision. Once enough damage has been received, the object is destroyed
+      and a prefab is instantiated at the same position as the broken object.
+
+
+      2) Create SoundOnStartup component
+
+      This component plays a sound when the object is... started.
+
+
+      3) Create breakable glass
+
+      Create a glass explosion prefab that has a particle effect and plays a sound
+      when it is created.
+
+
+      The glass prefab is updated by having the Breakable component added and having
+      the glass explosion prefab specified as the on to replace it when destroyed.'
+  - title: 'Version 3: 2... 1... FIRE!!'
+    note: '1) Created Launchable script
+
+      Create a script, which can be attached to any GameObject with a RigidBody2D
+      component. Dragging and releasing will apply a force to the rigidbody in the
+      direction opposite to that dragged and proportional to the distance dragged.
+
+
+      Also, while dragging, tracer prefabs are instantiated and launched in the same
+      direction and with the same force that the launchable object would be. This
+      traces out the path that the projecticle would follow.
+
+
+      2) Created Limited Lifetime script
+
+      This script automatically destroys an object after a given period of time. It
+      is used in this situation to destroy the tracer objects created, otherwise more
+      and more (and more) would be created until eventually the scene would be flooded
+      with them.
+
+
+      3) Perfabs updated
+
+      The Rhino prefab had the Launchable component attached and the Tracer prefab
+      specified as the tracer object. The Tracer prefab was updated by having a Limited
+      Lifetime component added.
+
+
+      The Tracer prefab was placed on a separate layer and the Physics 2D engine was
+      told not to let it interact with the default physics layer. Otherwise the tracers
+      would act like a machine gun... Also, the tracer was given a limited lifetime
+      to prevent an infinite amount of tracers being in the scene.'
+  - title: 'Version 2: Physics 2D'
+    note: "<b>Note:</b> read the Unity documentation on Physics 2D at <b>2D > Physics
+      Reference 2D</b> if you haven't already.\n\n1) Created Physics Materials 2D\nCreated
+      Physics Material 2D for each of block, glass, rhino, terrain and zombie, etc.\n\n2)
+      Created Sprite Sorting Layers\nTo have the sprites on different layers, a <i>foreground</i>,
+      <i>midground</i> and <i>background</i> layer was made. Sprites on the foreground
+      layer would be drawn over those in the background layer or midground layer.
+      Object in the midground layer are drawn over those in the backgroiund layer.\n\n3)
+      Created basic prefabs\nCreated terrain, block, glass, rhino, zombie and props
+      prefabs. All objects had colliders to define their shapes, while those that
+      were to be controller by the physic engine had Rigidbody 2D components as well.\n\nFor
+      block, glass and terrain, the Square sprite was used, but its colour (and transparency
+      - for glass) was adjusted in the Sprite Renderer component.\n\nFor more details,
+      read Unity's documentation at <b>2D > Physics Reference 2D > Collider 2D</b>.
+      \n\n4) Created scene\nCreated a simple scene with physics objects that move
+      around and interact with one another."
+  - title: 'Version 1: Basic Setup'
+    note: "<b>Note:</b> clicking the <b>-</b> button on this note will expand or close
+      it. The <b><</b> symbol will delete the note!\n\n1) Imported <b>Simple Notes</b>\n<b>Simple
+      Notes</b> was imported into the project from the Asset Store to allow comments
+      and notes about the project to be made in the editor. This windows is the main
+      notes taking window and will be used to display notes about the entire project.
+      Individual notes may be placed on specific objects as well. You can read these
+      by clicking on the object. Its note will then appear in the Scene window.\n\n2)
+      <b>Project Settings</b> for Version Control\n<b>Project Settings</b> was changed
+      so that the <b>Asset Serialization</b> is <b>Force Text</b> mode and <b>Version
+      Control</b> uses <b>Visible Meta Files</b>. These settings can be accessed from
+      the <b>Edit > Project Settings</b> menu. \n\nIf you are using version control,
+      then these settings will allow you to merge changes in a text diff checker program
+      - such as that which comes with Git Kraken installed in the labs.\n\n3) Created
+      Asset folders\nThe default folder structure was modified by adding <i>Scripts</i>,
+      <i>Sprites</i>, <i>Prefabs</i> and <i>Materials</i> folders.\n\n4) Created default
+      sprites\nUnity can create some basic sprites for use in a project. These are
+      found in the <b>Assets > Create > Sprites</b> sub-menu. A square and circle
+      sprite were created in the Sprites folder. See <b>2D > Sprite Creator</b> in
+      the Unity documentation for more details.\n\n5) Imported Sprites\nImported a
+      rhino sprite sheet, zombie sprite sheet and props sprite sheet. These then had
+      there <b>Sprite Mode</b> set to <i>multiple</i> sprites and the sprite editor
+      was used to cut it up into individual sprites. The sprite sheets were created
+      with a 4 pixel border between each image, so the slice tool in the editor can
+      be used to automatically create each sprite. The pivots were then moved to rotation
+      points (for later animation) and custom Physics 2D polygons <i>generated</i>
+      using the Custom Physics Shape tool.\n\nSee the Unity documentation on <b>2D
+      > Sprite Editor</b> for more details. The images were packed into a sprite sheet
+      using https://www.codeandweb.com/free-sprite-sheet-packer "

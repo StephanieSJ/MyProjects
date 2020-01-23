@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Project.Models.Achievement>
+
+@{
+    ViewBag.Title = "Manage Achievements";
+}
+
+<h2>Manage Achievements</h2>
+
+<a href="@Url.Action("Create", "Achievement")" class="btn btn-default">
+    Create New Achievement
+    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+</a>
+
+<hr />
+@using (Html.BeginForm("Manage", "Achievement", FormMethod.Get))
+{
+    <h4>Search for Achievement ID and name</h4>
+    <p>
+        Achievement ID: @Html.TextBox("id") Achievement Name: @Html.TextBox("searchString")
+        <input type="submit" value="Filter" />
+    </p>
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.achievementName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.achievementDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.achievementDifficulty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.achievementCategory)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.achievementName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.achievementDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.achievementDifficulty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.achievementCategory)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.achievementID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.achievementID })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    @if (ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            window.onload = function () {
+                alert('@ViewBag.Message');
+            };
+        </script>
+    }
+}

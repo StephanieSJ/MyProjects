@@ -1,0 +1,87 @@
+﻿@model Project.Models.GroupChallenge
+@{
+    ViewBag.Title = "GroupDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Group Challenge Details</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Challenge
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeName)
+        </dd>
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeDescription)
+        </dd>
+        <dt>
+            Distance
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeDistance)
+        </dd>
+        <dt>
+            Starting Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeTimeStart)
+        </dd>
+        <dt>
+            Ending Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeTimeEnd)
+        </dd>
+        <dt>
+            Gender
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeGender)
+        </dd>
+        <dt>
+            Lowest age limit
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeAgeLowerBound)
+        </dd>
+        <dt>
+            Highest age limit
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeAgeUpperBound)
+        </dd>
+        <dt>
+            Year in course
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeDegreeYear)
+        </dd>
+        <dt>
+            Course Faculty
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeDegreeFaculty)
+        </dd>
+        <dt>
+            User type
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.groupChallengeUserType)
+        </dd>
+        <dt>
+            Achievement
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Achievement.achievementName)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "GroupEdit", new { id = Model.groupChallengeID }) |
+    @Html.ActionLink("Back to List", "ManageGroupChallenge")
+</p>

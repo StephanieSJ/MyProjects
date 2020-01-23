@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Project.Models.RouteSection>
+
+@{
+	ViewBag.Title = "ManageSection";
+}
+
+<h2>ManageSection</h2>
+
+<p>
+	@Html.ActionLink("Create New", "CreateRouteSection")
+</p>
+<table class="table">
+	<tr>
+		<th>
+			@Html.DisplayNameFor(model => model.sectionStart)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.sectionEnd)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.sectionDistance)
+		</th>
+		<th>
+			@Html.DisplayNameFor(model => model.Route.routeName)
+		</th>
+		<th></th>
+	</tr>
+
+	@foreach (var item in Model)
+	{
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.sectionStart)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.sectionEnd)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.sectionDistance)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Route.routeName)
+			</td>
+			<td>
+				@Html.ActionLink("Edit", "EditSection", new { id = item.sectionID })
+			</td>
+		</tr>
+	}
+
+</table>
+<div>
+	@Html.ActionLink("Back to Manage Route", "ManageRoute")
+</div>
+

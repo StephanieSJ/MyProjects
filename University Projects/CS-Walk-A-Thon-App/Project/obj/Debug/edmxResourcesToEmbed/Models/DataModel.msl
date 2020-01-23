@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="WalkAThonModelStoreContainer" CdmEntityContainer="DataModel">
+    <EntitySetMapping Name="Achievements">
+      <EntityTypeMapping TypeName="WalkAThonModel.Achievement">
+        <MappingFragment StoreEntitySet="Achievement">
+          <ScalarProperty Name="achievementID" ColumnName="achievementID" />
+          <ScalarProperty Name="achievementName" ColumnName="achievementName" />
+          <ScalarProperty Name="achievementDescription" ColumnName="achievementDescription" />
+          <ScalarProperty Name="achievementDifficulty" ColumnName="achievementDifficulty" />
+          <ScalarProperty Name="achievementCategory" ColumnName="achievementCategory" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Challenges">
+      <EntityTypeMapping TypeName="WalkAThonModel.Challenge">
+        <MappingFragment StoreEntitySet="Challenge">
+          <ScalarProperty Name="challengeID" ColumnName="challengeID" />
+          <ScalarProperty Name="challengeName" ColumnName="challengeName" />
+          <ScalarProperty Name="challengeDescription" ColumnName="challengeDescription" />
+          <ScalarProperty Name="challengeDistance" ColumnName="challengeDistance" />
+          <ScalarProperty Name="challengeTimeStart" ColumnName="challengeTimeStart" />
+          <ScalarProperty Name="challengeTimeEnd" ColumnName="challengeTimeEnd" />
+          <ScalarProperty Name="challengeGender" ColumnName="challengeGender" />
+          <ScalarProperty Name="challengeAgeLowerBound" ColumnName="challengeAgeLowerBound" />
+          <ScalarProperty Name="challengeAgeUpperBound" ColumnName="challengeAgeUpperBound" />
+          <ScalarProperty Name="achievementID" ColumnName="achievementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DistanceLogs">
+      <EntityTypeMapping TypeName="WalkAThonModel.DistanceLog">
+        <MappingFragment StoreEntitySet="DistanceLogs">
+          <ScalarProperty Name="logID" ColumnName="logID" />
+          <ScalarProperty Name="logDistance" ColumnName="logDistance" />
+          <ScalarProperty Name="dateTimeCaptured" ColumnName="dateTimeCaptured" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GroupChallenges">
+      <EntityTypeMapping TypeName="WalkAThonModel.GroupChallenge">
+        <MappingFragment StoreEntitySet="GroupChallenge">
+          <ScalarProperty Name="groupChallengeID" ColumnName="groupChallengeID" />
+          <ScalarProperty Name="groupChallengeName" ColumnName="groupChallengeName" />
+          <ScalarProperty Name="groupChallengeDescription" ColumnName="groupChallengeDescription" />
+          <ScalarProperty Name="groupChallengeDistance" ColumnName="groupChallengeDistance" />
+          <ScalarProperty Name="groupChallengeTimeStart" ColumnName="groupChallengeTimeStart" />
+          <ScalarProperty Name="groupChallengeTimeEnd" ColumnName="groupChallengeTimeEnd" />
+          <ScalarProperty Name="groupChallengeGender" ColumnName="groupChallengeGender" />
+          <ScalarProperty Name="groupChallengeAgeLowerBound" ColumnName="groupChallengeAgeLowerBound" />
+          <ScalarProperty Name="groupChallengeAgeUpperBound" ColumnName="groupChallengeAgeUpperBound" />
+          <ScalarProperty Name="groupChallengeDegreeYear" ColumnName="groupChallengeDegreeYear" />
+          <ScalarProperty Name="groupChallengeDegreeFaculty" ColumnName="groupChallengeDegreeFaculty" />
+          <ScalarProperty Name="groupChallengeUserType" ColumnName="groupChallengeUserType" />
+          <ScalarProperty Name="achievementID" ColumnName="achievementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Images">
+      <EntityTypeMapping TypeName="WalkAThonModel.Image">
+        <MappingFragment StoreEntitySet="Image">
+          <ScalarProperty Name="imageID" ColumnName="imageID" />
+          <ScalarProperty Name="imageName" ColumnName="imageName" />
+          <ScalarProperty Name="imageContentType" ColumnName="imageContentType" />
+          <ScalarProperty Name="imageData" ColumnName="imageData" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PointOfInterests">
+      <EntityTypeMapping TypeName="WalkAThonModel.PointOfInterest">
+        <MappingFragment StoreEntitySet="PointOfInterest">
+          <ScalarProperty Name="POI_ID" ColumnName="POI_ID" />
+          <ScalarProperty Name="POI_Name" ColumnName="POI_Name" />
+          <ScalarProperty Name="POI_Information" ColumnName="POI_Information" />
+          <ScalarProperty Name="POI_PictureID" ColumnName="POI_PictureID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="WalkAThonModel.Route">
+        <MappingFragment StoreEntitySet="Route">
+          <ScalarProperty Name="routeID" ColumnName="routeID" />
+          <ScalarProperty Name="routeName" ColumnName="routeName" />
+          <ScalarProperty Name="routeStart" ColumnName="routeStart" />
+          <ScalarProperty Name="routeEnd" ColumnName="routeEnd" />
+          <ScalarProperty Name="distanceCovered" ColumnName="distanceCovered" />
+          <ScalarProperty Name="achievementID" ColumnName="achievementID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteLeaderboards">
+      <EntityTypeMapping TypeName="WalkAThonModel.RouteLeaderboard">
+        <MappingFragment StoreEntitySet="RouteLeaderboard">
+          <ScalarProperty Name="participantID" ColumnName="participantID" />
+          <ScalarProperty Name="participantFirstName" ColumnName="participantFirstName" />
+          <ScalarProperty Name="participantSurname" ColumnName="participantSurname" />
+          <ScalarProperty Name="participantDistance" ColumnName="participantDistance" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RouteSections">
+      <EntityTypeMapping TypeName="WalkAThonModel.RouteSection">
+        <MappingFragment StoreEntitySet="RouteSection">
+          <ScalarProperty Name="sectionID" ColumnName="sectionID" />
+          <ScalarProperty Name="sectionStart" ColumnName="sectionStart" />
+          <ScalarProperty Name="sectionEnd" ColumnName="sectionEnd" />
+          <ScalarProperty Name="sectionDistance" ColumnName="sectionDistance" />
+          <ScalarProperty Name="routeID" ColumnName="routeID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="WalkAThonModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="yearOfStudy" ColumnName="yearOfStudy" />
+          <ScalarProperty Name="degreeFaculty" ColumnName="degreeFaculty" />
+          <ScalarProperty Name="emailAddress" ColumnName="emailAddress" />
+          <ScalarProperty Name="profilePictureID" ColumnName="profilePictureID" />
+          <ScalarProperty Name="totDistanceTravelled" ColumnName="totDistanceTravelled" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="typeOfUser" ColumnName="typeOfUser" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserChallenges">
+      <EntityTypeMapping TypeName="WalkAThonModel.UserChallenge">
+        <MappingFragment StoreEntitySet="UserChallenge">
+          <ScalarProperty Name="challengeID" ColumnName="challengeID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="position" ColumnName="position" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserGroupChallenges">
+      <EntityTypeMapping TypeName="WalkAThonModel.UserGroupChallenge">
+        <MappingFragment StoreEntitySet="UserGroupChallenge">
+          <ScalarProperty Name="groupChallengeID" ColumnName="groupChallengeID" />
+          <ScalarProperty Name="userID" ColumnName="userID" />
+          <ScalarProperty Name="positionInGroup" ColumnName="positionInGroup" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="SectionPOI" TypeName="WalkAThonModel.SectionPOI" StoreEntitySet="SectionPOI">
+      <EndProperty Name="RouteSection">
+        <ScalarProperty Name="sectionID" ColumnName="sectionID" />
+      </EndProperty>
+      <EndProperty Name="PointOfInterest">
+        <ScalarProperty Name="POI_ID" ColumnName="POI_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="UserAchievement" TypeName="WalkAThonModel.UserAchievement" StoreEntitySet="UserAchievement">
+      <EndProperty Name="Achievement">
+        <ScalarProperty Name="achievementID" ColumnName="achievementID" />
+      </EndProperty>
+      <EndProperty Name="User">
+        <ScalarProperty Name="userID" ColumnName="userID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

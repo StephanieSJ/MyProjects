@@ -1,0 +1,177 @@
+﻿@model IEnumerable<Project.Models.GroupChallenge>
+@{
+    ViewBag.Title = "Join Group Challenge";
+    var id = ViewData["userID"];
+    var gender = ViewData["userGender"];
+    var age = ViewData["userAge"];
+    var doesExist = ViewData["doesExistGroup"];
+    var JoinedGroupChallenges = ViewData["JoinedGroupChallenges"];
+    int count = 0;
+    bool isJoined = false;
+    var distance = ViewData["distance"];
+    string curString = string.Empty;
+}
+<h2>Join Group Challenge</h2>
+@foreach (var item in Model)
+{
+	if (item.groupChallengeGender == gender.ToString() && item.groupChallengeAgeLowerBound <= int.Parse(age.ToString()) && item.groupChallengeAgeUpperBound >= int.Parse(age.ToString()))
+	{
+		count++;
+	}
+}
+@if (count != 0)
+{
+	<table class="table">
+		<tr>
+			<th>
+				<h4>Achievement</h4>
+			</th>
+			<th>
+				<h4>Challenge</h4>
+			</th>
+			<th>
+				<h4>Description</h4>
+			</th>
+			<th>
+				<h4>Distance</h4>
+			</th>
+			<th>
+				<h4>Starting Time</h4>
+			</th>
+			<th>
+				<h4>Ending Time</h4>
+			</th>
+			<th>
+				<h4>Gender</h4>
+			</th>
+			<th>
+				<h4>Lowest age limit</h4>
+			</th>
+			<th>
+				<h4>Highest age limit</h4>
+			</th>
+			<th>
+				<h4>Year in course</h4>
+			</th>
+			<th>
+				<h4>Course Faculty</h4>
+			</th>
+			<th>
+				<h4>User type</h4>
+			</th>
+			<th></th>
+		</tr>
+		@foreach (var item in Model)
+        {
+            if (item.groupChallengeGender == gender.ToString() && item.groupChallengeAgeLowerBound <= int.Parse(age.ToString()) && item.groupChallengeAgeUpperBound >= int.Parse(age.ToString()))
+            {
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Achievement.achievementName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeDescription)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeDistance)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeTimeStart)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeTimeEnd)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeGender)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeAgeLowerBound)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeAgeUpperBound)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeDegreeYear)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeDegreeFaculty)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.groupChallengeUserType)
+					</td>
+					<td>
+                        @{
+                            curString = string.Empty;
+                        }
+						@for (int i = 0; i <= JoinedGroupChallenges.ToString().Length - 1; i++)
+                        {
+                            if (!(JoinedGroupChallenges.ToString()[i].Equals(' ')))
+                            {
+                                curString += JoinedGroupChallenges.ToString()[i].ToString();
+                            }
+                            else
+                            {
+                                if (int.Parse(curString) == item.groupChallengeID)
+                                {
+                                    isJoined = true;
+                                }
+                                curString = string.Empty;
+                            }
+
+                            /*char cur = JoinedGroupChallenges.ToString()[i];
+                            if (int.Parse(cur.ToString()) == item.groupChallengeID)
+                            {
+                                isJoined = true;
+
+                            }*/
+                        }
+						@if (!(bool)doesExist || !isJoined && DateTime.Now >= item.groupChallengeTimeEnd)
+						{
+							@Html.ActionLink("Join Group Challenge", "SelectedJoinGroupChallenge", new { id = item.groupChallengeID })
+						}
+						else
+						{
+							<b>Joined</b>
+						}
+					</td>
+					@*Stephen added:*@
+					<td>
+						@if ((isJoined == true) && (double.Parse(distance.ToString()) >= int.Parse(item.groupChallengeDistance.ToString())))
+
+						//@if (isJoined = true && (int.Parse(ViewBag.distance) >= item.groupChallengeDistance))
+						{
+
+							<b>Closed, challenge completed</b>
+
+						}
+						@if (isJoined == false && (DateTime.Now < item.groupChallengeTimeEnd))
+						{
+
+							<b>Closed</b>
+						}
+						@if (isJoined == true && (DateTime.Now < item.groupChallengeTimeEnd) && !(double.Parse(distance.ToString()) >= int.Parse(item.groupChallengeDistance.ToString())))
+						{
+
+							<b>Closed, did not complete in time.</b>
+						}
+						@if (DateTime.Now >= item.groupChallengeTimeEnd)
+						{
+							<b>Open</b>
+						}
+					</td>
+				</tr>
+			}
+			isJoined = false;
+
+		}
+	</table>
+}
+else
+{
+	<p>
+		There are currently no group challenges for you to join.
+	</p>
+}

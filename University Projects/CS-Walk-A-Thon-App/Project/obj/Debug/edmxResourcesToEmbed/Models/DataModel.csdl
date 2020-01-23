@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WalkAThonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Achievement">
+    <Key>
+      <PropertyRef Name="achievementID" />
+    </Key>
+    <Property Name="achievementID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="achievementName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="achievementDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="achievementDifficulty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="achievementCategory" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Challenges" Relationship="Self.FK_Challenge_Achievement" FromRole="Achievement" ToRole="Challenge" />
+    <NavigationProperty Name="GroupChallenges" Relationship="Self.FK_GroupChallenge_Achievement" FromRole="Achievement" ToRole="GroupChallenge" />
+    <NavigationProperty Name="Routes" Relationship="Self.FK_Route_Achievement" FromRole="Achievement" ToRole="Route" />
+    <NavigationProperty Name="Users" Relationship="Self.UserAchievement" FromRole="Achievement" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Challenge">
+    <Key>
+      <PropertyRef Name="challengeID" />
+    </Key>
+    <Property Name="challengeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="challengeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="challengeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="challengeDistance" Type="Double" Nullable="false" />
+    <Property Name="challengeTimeStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="challengeTimeEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="challengeGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="challengeAgeLowerBound" Type="Int32" Nullable="false" />
+    <Property Name="challengeAgeUpperBound" Type="Int32" Nullable="false" />
+    <Property Name="achievementID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Achievement" Relationship="Self.FK_Challenge_Achievement" FromRole="Challenge" ToRole="Achievement" />
+    <NavigationProperty Name="UserChallenges" Relationship="Self.FK_UserChallenge_Challenge" FromRole="Challenge" ToRole="UserChallenge" />
+  </EntityType>
+  <EntityType Name="DistanceLog">
+    <Key>
+      <PropertyRef Name="logID" />
+    </Key>
+    <Property Name="logID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="logDistance" Type="Double" Nullable="false" />
+    <Property Name="dateTimeCaptured" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_DistanceLogs_User" FromRole="DistanceLogs" ToRole="User" />
+  </EntityType>
+  <EntityType Name="GroupChallenge">
+    <Key>
+      <PropertyRef Name="groupChallengeID" />
+    </Key>
+    <Property Name="groupChallengeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupChallengeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="groupChallengeDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="groupChallengeDistance" Type="Double" Nullable="false" />
+    <Property Name="groupChallengeTimeStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="groupChallengeTimeEnd" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="groupChallengeGender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="groupChallengeAgeLowerBound" Type="Int32" Nullable="false" />
+    <Property Name="groupChallengeAgeUpperBound" Type="Int32" Nullable="false" />
+    <Property Name="groupChallengeDegreeYear" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="groupChallengeDegreeFaculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="groupChallengeUserType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="achievementID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Achievement" Relationship="Self.FK_GroupChallenge_Achievement" FromRole="GroupChallenge" ToRole="Achievement" />
+    <NavigationProperty Name="UserGroupChallenges" Relationship="Self.FK_UserGroupChallenge_GroupChallenge" FromRole="GroupChallenge" ToRole="UserGroupChallenge" />
+  </EntityType>
+  <EntityType Name="Image">
+    <Key>
+      <PropertyRef Name="imageID" />
+    </Key>
+    <Property Name="imageID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="imageName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="imageContentType" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="imageData" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <NavigationProperty Name="PointOfInterests" Relationship="Self.FK_Image_PointOfInterest" FromRole="Image" ToRole="PointOfInterest" />
+    <NavigationProperty Name="Users" Relationship="Self.FK_Image_User" FromRole="Image" ToRole="User" />
+  </EntityType>
+  <EntityType Name="PointOfInterest">
+    <Key>
+      <PropertyRef Name="POI_ID" />
+    </Key>
+    <Property Name="POI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="POI_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="POI_Information" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="POI_PictureID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Image" Relationship="Self.FK_Image_PointOfInterest" FromRole="PointOfInterest" ToRole="Image" />
+    <NavigationProperty Name="RouteSections" Relationship="Self.SectionPOI" FromRole="PointOfInterest" ToRole="RouteSection" />
+  </EntityType>
+  <EntityType Name="Route">
+    <Key>
+      <PropertyRef Name="routeID" />
+    </Key>
+    <Property Name="routeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="routeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="routeStart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="routeEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="distanceCovered" Type="Double" Nullable="false" />
+    <Property Name="achievementID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Achievement" Relationship="Self.FK_Route_Achievement" FromRole="Route" ToRole="Achievement" />
+    <NavigationProperty Name="RouteSections" Relationship="Self.FK_Route_RouteSection" FromRole="Route" ToRole="RouteSection" />
+  </EntityType>
+  <EntityType Name="RouteLeaderboard">
+    <Key>
+      <PropertyRef Name="participantID" />
+    </Key>
+    <Property Name="participantID" Type="Int32" Nullable="false" />
+    <Property Name="participantFirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="participantSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="participantDistance" Type="Double" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK_RouteLeaderboard_User" FromRole="RouteLeaderboard" ToRole="User" />
+  </EntityType>
+  <EntityType Name="RouteSection">
+    <Key>
+      <PropertyRef Name="sectionID" />
+    </Key>
+    <Property Name="sectionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sectionStart" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sectionEnd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sectionDistance" Type="Double" Nullable="false" />
+    <Property Name="routeID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Route" Relationship="Self.FK_Route_RouteSection" FromRole="RouteSection" ToRole="Route" />
+    <NavigationProperty Name="PointOfInterests" Relationship="Self.SectionPOI" FromRole="RouteSection" ToRole="PointOfInterest" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="userID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="surname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateOfBirth" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="yearOfStudy" Type="Int32" Nullable="false" />
+    <Property Name="degreeFaculty" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="emailAddress" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="profilePictureID" Type="Int32" Nullable="false" />
+    <Property Name="totDistanceTravelled" Type="Double" Nullable="false" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="typeOfUser" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="DistanceLogs" Relationship="Self.FK_DistanceLogs_User" FromRole="User" ToRole="DistanceLogs" />
+    <NavigationProperty Name="Image" Relationship="Self.FK_Image_User" FromRole="User" ToRole="Image" />
+    <NavigationProperty Name="RouteLeaderboard" Relationship="Self.FK_RouteLeaderboard_User" FromRole="User" ToRole="RouteLeaderboard" />
+    <NavigationProperty Name="UserChallenges" Relationship="Self.FK_User_UserChallenge" FromRole="User" ToRole="UserChallenge" />
+    <NavigationProperty Name="UserGroupChallenges" Relationship="Self.FK_User_UserGroupChallenge" FromRole="User" ToRole="UserGroupChallenge" />
+    <NavigationProperty Name="Achievements" Relationship="Self.UserAchievement" FromRole="User" ToRole="Achievement" />
+  </EntityType>
+  <EntityType Name="UserChallenge">
+    <Key>
+      <PropertyRef Name="challengeID" />
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="challengeID" Type="Int32" Nullable="false" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="position" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Challenge" Relationship="Self.FK_UserChallenge_Challenge" FromRole="UserChallenge" ToRole="Challenge" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_UserChallenge" FromRole="UserChallenge" ToRole="User" />
+  </EntityType>
+  <EntityType Name="UserGroupChallenge">
+    <Key>
+      <PropertyRef Name="groupChallengeID" />
+      <PropertyRef Name="userID" />
+    </Key>
+    <Property Name="groupChallengeID" Type="Int32" Nullable="false" />
+    <Property Name="userID" Type="Int32" Nullable="false" />
+    <Property Name="positionInGroup" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GroupChallenge" Relationship="Self.FK_UserGroupChallenge_GroupChallenge" FromRole="UserGroupChallenge" ToRole="GroupChallenge" />
+    <NavigationProperty Name="User" Relationship="Self.FK_User_UserGroupChallenge" FromRole="UserGroupChallenge" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Challenge_Achievement">
+    <End Role="Achievement" Type="Self.Achievement" Multiplicity="1" />
+    <End Role="Challenge" Type="Self.Challenge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Achievement">
+        <PropertyRef Name="achievementID" />
+      </Principal>
+      <Dependent Role="Challenge">
+        <PropertyRef Name="achievementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroupChallenge_Achievement">
+    <End Role="Achievement" Type="Self.Achievement" Multiplicity="1" />
+    <End Role="GroupChallenge" Type="Self.GroupChallenge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Achievement">
+        <PropertyRef Name="achievementID" />
+      </Principal>
+      <Dependent Role="GroupChallenge">
+        <PropertyRef Name="achievementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Route_Achievement">
+    <End Role="Achievement" Type="Self.Achievement" Multiplicity="1" />
+    <End Role="Route" Type="Self.Route" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Achievement">
+        <PropertyRef Name="achievementID" />
+      </Principal>
+      <Dependent Role="Route">
+        <PropertyRef Name="achievementID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserChallenge_Challenge">
+    <End Role="Challenge" Type="Self.Challenge" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserChallenge" Type="Self.UserChallenge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Challenge">
+        <PropertyRef Name="challengeID" />
+      </Principal>
+      <Dependent Role="UserChallenge">
+        <PropertyRef Name="challengeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DistanceLogs_User">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="DistanceLogs" Type="Self.DistanceLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="DistanceLogs">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserGroupChallenge_GroupChallenge">
+    <End Role="GroupChallenge" Type="Self.GroupChallenge" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserGroupChallenge" Type="Self.UserGroupChallenge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroupChallenge">
+        <PropertyRef Name="groupChallengeID" />
+      </Principal>
+      <Dependent Role="UserGroupChallenge">
+        <PropertyRef Name="groupChallengeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Image_PointOfInterest">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="PointOfInterest" Type="Self.PointOfInterest" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="imageID" />
+      </Principal>
+      <Dependent Role="PointOfInterest">
+        <PropertyRef Name="POI_PictureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Image_User">
+    <End Role="Image" Type="Self.Image" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Image">
+        <PropertyRef Name="imageID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="profilePictureID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Route_RouteSection">
+    <End Role="Route" Type="Self.Route" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RouteSection" Type="Self.RouteSection" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Route">
+        <PropertyRef Name="routeID" />
+      </Principal>
+      <Dependent Role="RouteSection">
+        <PropertyRef Name="routeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RouteLeaderboard_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="RouteLeaderboard" Type="Self.RouteLeaderboard" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="RouteLeaderboard">
+        <PropertyRef Name="participantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserChallenge">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserChallenge" Type="Self.UserChallenge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="UserChallenge">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_UserGroupChallenge">
+    <End Role="User" Type="Self.User" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="UserGroupChallenge" Type="Self.UserGroupChallenge" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="userID" />
+      </Principal>
+      <Dependent Role="UserGroupChallenge">
+        <PropertyRef Name="userID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="SectionPOI">
+    <End Role="RouteSection" Type="Self.RouteSection" Multiplicity="*" />
+    <End Role="PointOfInterest" Type="Self.PointOfInterest" Multiplicity="*" />
+  </Association>
+  <Association Name="UserAchievement">
+    <End Role="Achievement" Type="Self.Achievement" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="DataModel" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Achievements" EntityType="Self.Achievement" />
+    <EntitySet Name="Challenges" EntityType="Self.Challenge" />
+    <EntitySet Name="DistanceLogs" EntityType="Self.DistanceLog" />
+    <EntitySet Name="GroupChallenges" EntityType="Self.GroupChallenge" />
+    <EntitySet Name="Images" EntityType="Self.Image" />
+    <EntitySet Name="PointOfInterests" EntityType="Self.PointOfInterest" />
+    <EntitySet Name="Routes" EntityType="Self.Route" />
+    <EntitySet Name="RouteLeaderboards" EntityType="Self.RouteLeaderboard" />
+    <EntitySet Name="RouteSections" EntityType="Self.RouteSection" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <EntitySet Name="UserChallenges" EntityType="Self.UserChallenge" />
+    <EntitySet Name="UserGroupChallenges" EntityType="Self.UserGroupChallenge" />
+    <AssociationSet Name="FK_Challenge_Achievement" Association="Self.FK_Challenge_Achievement">
+      <End Role="Achievement" EntitySet="Achievements" />
+      <End Role="Challenge" EntitySet="Challenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroupChallenge_Achievement" Association="Self.FK_GroupChallenge_Achievement">
+      <End Role="Achievement" EntitySet="Achievements" />
+      <End Role="GroupChallenge" EntitySet="GroupChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Route_Achievement" Association="Self.FK_Route_Achievement">
+      <End Role="Achievement" EntitySet="Achievements" />
+      <End Role="Route" EntitySet="Routes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserChallenge_Challenge" Association="Self.FK_UserChallenge_Challenge">
+      <End Role="Challenge" EntitySet="Challenges" />
+      <End Role="UserChallenge" EntitySet="UserChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DistanceLogs_User" Association="Self.FK_DistanceLogs_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="DistanceLogs" EntitySet="DistanceLogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserGroupChallenge_GroupChallenge" Association="Self.FK_UserGroupChallenge_GroupChallenge">
+      <End Role="GroupChallenge" EntitySet="GroupChallenges" />
+      <End Role="UserGroupChallenge" EntitySet="UserGroupChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Image_PointOfInterest" Association="Self.FK_Image_PointOfInterest">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="PointOfInterest" EntitySet="PointOfInterests" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Image_User" Association="Self.FK_Image_User">
+      <End Role="Image" EntitySet="Images" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Route_RouteSection" Association="Self.FK_Route_RouteSection">
+      <End Role="Route" EntitySet="Routes" />
+      <End Role="RouteSection" EntitySet="RouteSections" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RouteLeaderboard_User" Association="Self.FK_RouteLeaderboard_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="RouteLeaderboard" EntitySet="RouteLeaderboards" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserChallenge" Association="Self.FK_User_UserChallenge">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserChallenge" EntitySet="UserChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_UserGroupChallenge" Association="Self.FK_User_UserGroupChallenge">
+      <End Role="User" EntitySet="Users" />
+      <End Role="UserGroupChallenge" EntitySet="UserGroupChallenges" />
+    </AssociationSet>
+    <AssociationSet Name="SectionPOI" Association="Self.SectionPOI">
+      <End Role="RouteSection" EntitySet="RouteSections" />
+      <End Role="PointOfInterest" EntitySet="PointOfInterests" />
+    </AssociationSet>
+    <AssociationSet Name="UserAchievement" Association="Self.UserAchievement">
+      <End Role="Achievement" EntitySet="Achievements" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,418 @@
+﻿@model Project.Models.User
+
+@{
+    ViewBag.Title = "View User Achievements";
+}
+
+<h2>@Model.firstName's Achievements</h2>
+
+@{
+    int x = 0;
+}
+
+<h3>Solo Achievements</h3>
+@*<div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        Collapsible Group 1
+                    </a>
+                </h4>
+                <div class="achievementMedal">
+                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                </div>
+                <div>
+                    @Html.DisplayFor(modelItem => item.achievementName)
+                </div>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+                    commodo consequat.
+                </div>
+            </div>
+        </div>
+    </div>*@
+<div class="panel-group" id="accordion">
+    @*<table class="table">*@
+    @{
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Solo") && item.achievementDifficulty.Equals("Gold"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+
+                @*<tr>
+                        <td>
+                            <div class="achievementMedal">
+                                <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.achievementName)
+                        </td>
+
+                    </tr>*@
+            }
+        }
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Solo") && item.achievementDifficulty.Equals("Silver"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/silver-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Solo") && item.achievementDifficulty.Equals("Bronze"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/bronze-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+    @*</table>*@
+</div>
+
+<h3>Group Achievements</h3>
+<div class="panel-group" id="accordion">
+    @*<table class="table">*@
+    @{
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Group") && item.achievementDifficulty.Equals("Gold"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+
+                @*<tr>
+                        <td>
+                            <div class="achievementMedal">
+                                <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.achievementName)
+                        </td>
+
+                    </tr>*@
+            }
+        }
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Group") && item.achievementDifficulty.Equals("Silver"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/silver-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Group") && item.achievementDifficulty.Equals("Bronze"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/bronze-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+    @*</table>*@
+</div>
+
+<h3>Route Achievements</h3>
+<div class="panel-group" id="accordion">
+    @*<table class="table">*@
+    @{
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Route") && item.achievementDifficulty.Equals("Gold"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+
+                @*<tr>
+                        <td>
+                            <div class="achievementMedal">
+                                <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/gold-medal.png" />
+                            </div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.achievementName)
+                        </td>
+
+                    </tr>*@
+            }
+        }
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Route") && item.achievementDifficulty.Equals("Silver"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/silver-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        foreach (var item in Model.Achievements)
+        {
+            x++;
+            if (item.achievementCategory.Equals("Route") && item.achievementDifficulty.Equals("Bronze"))
+            {
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-1">
+                                    @*<div class="achievementMedal">
+                                        </div>*@
+                                    <img alt="Achievement Medal Picture" width="50" src="~/Content/Images/bronze-medal.png" />
+                                </div>
+                                <div class="col-sm-11">
+                                    <h4 class="panel-title">
+                                        @*class="accordion-toggle collapsed"*@
+                                        <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="@("#collapse" + x)">
+                                            @Html.DisplayFor(modelItem => item.achievementName)
+                                        </a>
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="@("collapse" + x)" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            @Html.DisplayFor(modelItem => item.achievementDescription)
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+    @*</table>*@
+</div>
+
+<div>
+    <a href="@Url.Action("ViewProfile", "Home")" class="btn btn-default">
+        Return To Profile
+        @*<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>*@
+    </a>
+</div>
+
+@*@section Scripts {
+        @Scripts.Render("~/bundles/jquery")
+    <script type="text/javascript">
+        function toggleChevron(e) {
+            $(e.target)
+                .prev('.panel-heading')
+                .find('i.indicator')
+                .toggleClass('glyphicon-chevron-down glyphicon-chevron-up');
+        }
+        $('#accordion').on('hidden.bs.collapse', toggleChevron);
+        $('#accordion').on('shown.bs.collapse', toggleChevron);
+    </script>
+    }*@
+
+@*@section scripts {
+
+    }*@

@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Project.Models.Challenge>
+@{
+	ViewBag.Title = "JoinChallenge";
+	var id = ViewData["userID"];
+	var gender = ViewData["userGender"];
+	var age = ViewData["userAge"];
+	var doesExist = ViewData["doesExist"];
+	var JoinedChallenges = ViewData["joinedChallenges"];
+	int count = 0;
+	bool isJoined = false;
+	var distance = ViewData["Distance"];
+    string curString = string.Empty;
+}
+<h2>Join Challenge</h2>
+@foreach (var item in Model)
+{
+	if (item.challengeGender == gender.ToString() && item.challengeAgeLowerBound <= int.Parse(age.ToString()) && item.challengeAgeUpperBound >= int.Parse(age.ToString()))
+	{
+		count++;
+	}
+}
+@if (count != 0)
+{
+	<table class="table">
+		<tr>
+			<th>
+				<h4>Achievement</h4>
+			</th>
+			<th>
+				<h4>Challenge</h4>
+			</th>
+			<th>
+				<h4>Description</h4>
+			</th>
+			<th>
+				<h4>Distance</h4>
+			</th>
+			<th>
+				<h4>Starting Time</h4>
+			</th>
+			<th>
+				<h4>Ending Time</h4>
+			</th>
+			<th>
+				<h4>Gender</h4>
+			</th>
+			<th>
+				<h4>Lowest age limit</h4>
+			</th>
+			<th>
+				<h4>Highest age limit</h4>
+			</th>
+			<th></th>
+		</tr>
+		@foreach (var item in Model)
+        {
+            if (item.challengeGender == gender.ToString() && item.challengeAgeLowerBound <= int.Parse(age.ToString()) && item.challengeAgeUpperBound >= int.Parse(age.ToString()))
+            {
+				<tr>
+					<td>
+						@Html.DisplayFor(modelItem => item.Achievement.achievementName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeName)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeDescription)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeDistance)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeTimeStart)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeTimeEnd)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeGender)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeAgeLowerBound)
+					</td>
+					<td>
+						@Html.DisplayFor(modelItem => item.challengeAgeUpperBound)
+					</td>
+                    <td>
+                        @{
+                            curString = string.Empty;
+                        }
+                        @for (int i = 0; i <= JoinedChallenges.ToString().Length - 1; i++)
+                        {
+                            if (!(JoinedChallenges.ToString()[i].Equals(' ')))
+                            {
+                                curString += JoinedChallenges.ToString()[i].ToString();
+                            }
+                            else
+                            {
+                                if (int.Parse(curString) == item.challengeID)
+                                {
+                                    isJoined = true;
+                                }
+                                curString = string.Empty;
+                            }
+                            //curString = JoinedChallenges.ToString()[i].ToString();
+                            //char cur = JoinedChallenges.ToString()[i];
+                            /*if (int.Parse(cur.ToString()) == item.challengeID)
+                            {
+                                isJoined = true;
+
+                            }*/
+                        }
+
+                        @if (!(bool)doesExist || !isJoined && (DateTime.Now >= item.challengeTimeEnd))
+                        {
+                            @Html.ActionLink("Join Challenge", "SelectedJoinChallenge", new { id = item.challengeID })
+                        }
+                        else
+                        {
+                            <b>Joined</b>
+                        }
+
+                    </td>
+
+					@*Stephen added:*@
+					<td>
+						@if ((isJoined == true) && (double.Parse(distance.ToString()) >= int.Parse(item.challengeDistance.ToString())))
+						{
+
+							<b>Closed, challenge completed</b>
+
+						}
+						@if (isJoined == false && (DateTime.Now < item.challengeTimeEnd))
+						{
+
+							<b>Closed</b>
+						}
+						@if (isJoined == true && (DateTime.Now < item.challengeTimeEnd) && !(double.Parse(distance.ToString()) >= int.Parse(item.challengeDistance.ToString())))
+						{
+
+							<b>Closed, did not complete in time.</b>
+						}
+						@if (DateTime.Now >= item.challengeTimeEnd)
+						{
+							<b>Open</b>
+						}
+					</td>
+				</tr>
+			}
+			isJoined = false;
+		}
+	</table>
+}
+else
+{
+	<p>
+		There are currently no challenges for you to join.
+	</p>
+}

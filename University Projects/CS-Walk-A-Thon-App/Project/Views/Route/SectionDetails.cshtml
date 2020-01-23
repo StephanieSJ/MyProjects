@@ -1,0 +1,50 @@
+﻿@model Project.Models.RouteSection
+
+@{
+    ViewBag.Title = "SectionDetails";
+}
+
+<h2>SectionDetails</h2>
+
+<div>
+    <h4>RouteSection</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Section Start
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sectionStart)
+        </dd>
+
+        <dt>
+            Section End
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sectionEnd)
+        </dd>
+
+        <dt>
+            Section Distance
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.sectionDistance)
+        </dd>
+
+        <dt>
+            Route Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.routeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "EditSection", new { id = Model.sectionID }) |*@
+    @Html.ActionLink("Back to List", "ViewSection")
+</p>

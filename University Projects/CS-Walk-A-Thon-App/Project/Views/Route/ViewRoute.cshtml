@@ -1,0 +1,62 @@
+﻿@model Project.Models.Route
+
+@{
+	ViewBag.Title = "Index";
+}
+
+
+<h2>RouteDetails</h2>
+
+<div>
+	<h4>Route</h4>
+	<hr />
+	<dl class="dl-horizontal">
+		<dt>
+			@Html.DisplayNameFor(model => model.routeName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.routeName)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.routeStart)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.routeStart)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.routeEnd)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.routeEnd)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.distanceCovered)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.distanceCovered)
+		</dd>
+
+		<dt>
+			@Html.DisplayNameFor(model => model.Achievement.achievementName)
+		</dt>
+
+		<dd>
+			@Html.DisplayFor(model => model.Achievement.achievementName)
+		</dd>
+
+
+	</dl>
+</div>
+
+<p>
+	@Html.ActionLink("Edit", "Edit", new { id = Model.routeID }) |
+	@Html.ActionLink("Back to List", "ViewRoute")
+</p>
+

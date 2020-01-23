@@ -1,0 +1,71 @@
+﻿@model Project.Models.Challenge
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Challenge Details</h2>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Challenge
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeName)
+        </dd>
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeDescription)
+        </dd>
+        <dt>
+            Distance
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeDistance)
+        </dd>
+        <dt>
+            Starting Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeTimeStart)
+        </dd>
+        <dt>
+            Ending Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeTimeEnd)
+        </dd>
+        <dt>
+            Gender
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeGender)
+        </dd>
+        <dt>
+            Lowest age limit
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeAgeLowerBound)
+        </dd>
+        <dt>
+            Highest age limit
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeAgeUpperBound)
+        </dd>
+        <dt>
+            Achievement
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Achievement.achievementName)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.challengeID }) |
+    @Html.ActionLink("Back to List", "ManageChallenge")
+</p>

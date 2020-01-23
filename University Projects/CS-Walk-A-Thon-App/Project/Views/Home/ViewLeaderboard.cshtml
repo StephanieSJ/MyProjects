@@ -1,0 +1,100 @@
+﻿@model Project.Models.LeaderboardModel
+@{
+    ViewBag.Title = "View Leaderboard";
+    int i = 0;
+}
+<h2>Route Leaderboard</h2>
+
+@if (Model.leaderboard.First() == null)
+{
+    <div class="row">
+        <h3>
+            Route Progress:
+        </h3>
+        <p>
+            There is currently no route in progress.
+        </p>
+    </div>
+}
+<div class="row">
+    @if (Model.leaderboard.First() != null)
+    {
+        <div class="col-lg-6">
+            <table class="table">
+                @foreach (var item in Model.leaderboard)
+                {
+                    if (i == 0)
+                    {
+                        <tr>
+                            <th>
+                                Position
+                            </th>
+                            <th>
+                                <h4>Name</h4>
+                            </th>
+                            <th>
+                                <h4>Distance</h4>
+                            </th>
+                        </tr>
+                    }
+                    i++;
+                    <tr>
+                        <td>
+                            <div>@i</div>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.participantFirstName)
+                            @Html.DisplayFor(modelItem => item.participantSurname)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.participantDistance)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    }
+    @if (Model.users.First() != null && Model.users.First().totDistanceTravelled != 0)
+    {
+        <div class="col-lg-6">
+            <h3>Global leaderboard</h3>
+            <table class="table">
+                <tr>
+                    <td align="center">
+                        <b>
+                            Position
+                        </b>
+                    </td>
+                    <td align="center">
+                        <b>
+                            Name
+                        </b>
+                    </td>
+                    <td align="center">
+                        <b>
+                            total Distance
+                        </b>
+                    </td>
+                </tr>
+                @{
+                    int position = 1;
+                    foreach (var person in Model.users)
+                    {
+                        <tr>
+                            <td align="center">
+                                @position
+                            </td>
+                            <td align="center">
+                                @(person.firstName + " " + person.surname)
+                            </td>
+                            <td align="right">
+                                @Html.DisplayFor(modelItem => person.totDistanceTravelled)
+                            </td>
+                        </tr>
+                        position++;
+                    }
+                }
+            </table>
+        </div>
+    }
+</div>

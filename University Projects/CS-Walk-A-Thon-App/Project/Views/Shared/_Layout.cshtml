@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("CS Walk-A-Thon App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Dashboard", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Log Distance", "LogDistance", "Home")</li>
+                    <li>@Html.ActionLink("View Route", "TheView", "Route")</li>
+                    <li>@Html.ActionLink("Leaderboard", "ViewLeaderboard", "Home")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"> Join Challenge</span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Join Challenge", "JoinChallenge", "Challenge")</li>
+                            <li>@Html.ActionLink("Join Group Challenge", "JoinGroupChallenge", "Challenge")</li>
+                        </ul>
+                    </li>
+                    @if (User.IsInRole("Administrator"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"> Admin Tasks</span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Create Route", "Create", "Route")</li>
+                                <li>@Html.ActionLink("Add Point of Interest", "CreatePOI", "Route")</li>
+                                <li>@Html.ActionLink("Set Challenge", "Create", "Challenge")</li>
+                                <li>@Html.ActionLink("Manage Routes", "ManageRoute", "Route")</li>
+                                <li>@Html.ActionLink("Manage Challenges", "ManageChallenge", "Challenge")</li>
+                                <li>@Html.ActionLink("Manage Group Challenges", "ManageGroupChallenge", "Challenge")</li>
+                                <li>@Html.ActionLink("Manage Achievements", "Manage", "Achievement")</li>
+                                <li>@Html.ActionLink("Create Achievement", "Create", "Achievement")</li>
+                            </ul>
+                        </li>
+                    }
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"> Profile</span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("View Profile", "ViewProfile", "Home")</li>
+                            <li>@Html.ActionLink("Edit Profile", "EditProfile", "Home")</li>
+                            <li>@Html.ActionLink("View Achievments", "ViewAchievements", "Home")</li>
+                            <li>---------------------------------</li>
+                            <li><a href="#" onclick="document.forms[0].submit();">Logout</a></li>
+                            <li>@Html.ActionLink("Create Profile", "CreateProfile", "Home")</li>
+                        </ul>
+                    </li>
+                </ul>
+                @using (Html.BeginForm("Logout", "Home", FormMethod.Post))
+                {
+                }
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Some Quantum Lads</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+#profilePicture{
+    width: 200px;
+}
+
+.achievementMedal {
+    width: 200px;
+}
+
+.panel-heading .container-fluid .row .col-sm-11 .accordion-toggle:after {
+    /*symbol for "opening" panels*/
+    font-family: 'Glyphicons Halflings';
+    /*essential for enabling glyphicon*/
+    content: "\e113";
+    /*adjust as needed, taken from bootstrap.css*/
+    /*content: "\e114";*/
+    float: right;
+    /*adjust as needed*/
+    color: grey;
+    /*adjust as needed*/
+}
+
+.panel-heading .container-fluid .row .col-sm-11 .accordion-toggle .collapsed:after {
+    /*symbol for "collapsed" panels*/
+    /*content: "\e080";*/
+    /*adjust as needed, taken from bootstrap.css*/
+    content: "\e114";
+}
+
+a.accordion-toggle {
+    text-decoration: none;
+}

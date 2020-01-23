@@ -1,0 +1,137 @@
+﻿@model Project.Models.GroupChallenge
+
+@{
+    ViewBag.Title = "CreateGroupChallenge";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create Group Challenge</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Challenge</p>
+            @Html.EditorFor(model => model.groupChallengeName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Description</p>
+            @Html.EditorFor(model => model.groupChallengeDescription, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeDescription, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Distance</p>
+            @Html.EditorFor(model => model.groupChallengeDistance, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeDistance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Starting Time</p>
+            @Html.EditorFor(model => model.groupChallengeTimeStart, new { htmlAttributes = new { @class = "form-control", placeholder = "yyyy/mm/dd" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeTimeStart, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Ending Time</p>
+            @Html.EditorFor(model => model.groupChallengeTimeEnd, new { htmlAttributes = new { @class = "form-control", placeholder = "yyyy/mm/dd" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeTimeEnd, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Gender</p>
+            @Html.DropDownListFor(model => model.groupChallengeGender, new SelectList(ViewBag.GenderList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.groupChallengeGender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Lowest age limit</p>
+            @Html.EditorFor(model => model.groupChallengeAgeLowerBound, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeAgeLowerBound, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Highest age limit</p>
+            @Html.EditorFor(model => model.groupChallengeAgeUpperBound, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeAgeUpperBound, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Year in course</p>
+            @Html.EditorFor(model => model.groupChallengeDegreeYear, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.groupChallengeDegreeYear, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Course Faculty</p>
+            @Html.DropDownListFor(model => model.groupChallengeDegreeFaculty, new SelectList(ViewBag.FacultyList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.groupChallengeDegreeFaculty, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>User type</p>
+            @Html.DropDownListFor(model => model.groupChallengeUserType, new SelectList(ViewBag.UserTypeList, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.groupChallengeUserType, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            <p>Achievement</p>
+            @Html.DropDownList("achievementID", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.achievementID, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @Html.ActionLink("Create Achievement", "Create", "Achievement")
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ManageGroupChallenge")
+</div>
+@section scripts{
+    <script type="text/javascript">
+//...
+        $('.datepicker').datepicker({
+            format: 'dd/mm/yyyy', //choose the date format you prefer
+            language: "en-ZA",
+            orientation: 'left bottom'
+        });</script>
+}

@@ -1,0 +1,148 @@
+﻿@using Project.Models
+@model Project.Models.RouteAndSection
+@{
+	ViewBag.Title = "TheView";
+	var distance = ViewData["Distance"];
+}
+
+@*@{Html.RenderPartial("RouteDetails");}
+    @{Html.RenderPartial("SectionDetails");}*@
+ <div class="row">
+            <h3>
+                @Html.DisplayFor(modelItem => Model.Route.routeName) Progress:
+            </h3>
+            <p>
+                @distance.ToString()  km / @Model.Route.distanceCovered km
+            </p>
+            @{
+                double percent = Math.Truncate((float.Parse(distance.ToString()) * 1.0 / Model.Route.distanceCovered) * 100);
+                string barColor = "progress-bar-danger";
+                if (percent < 33)
+                {
+                    barColor = "progress-bar-danger";
+                }
+                else if (percent < 66)
+                {
+                    barColor = "progress-bar-warning";
+                }
+                else if (percent < 99)
+                {
+                    barColor = "progress-bar-info";
+                }
+                else
+                {
+                    barColor = "progress-bar-success";
+                }
+            }
+            <div class="progress">
+                <div class="progress-bar progress-bar-striped @barColor active" role="progressbar" style="min-width:2em; max-width:100%; width:@percent%;">
+                    @percent%
+                </div>
+            </div>
+        </div>
+
+<div>
+    <h2>Route</h2>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Route Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.routeName)
+        </dd>
+
+        <dt>
+            Route Start
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.routeStart)
+        </dd>
+
+        <dt>
+            Route End
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.routeEnd)
+        </dd>
+
+        <dt>
+            Distance Covered
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.distanceCovered)
+        </dd>
+
+        <dt>
+            Achievement Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Route.Achievement.achievementName)
+        </dd>
+
+
+    </dl>
+
+</div>
+<table class="table">
+    <tr>
+        <th></th>
+        <th>
+            Section Start
+        </th>
+        <th>
+            Section End
+        </th>
+        <th>
+            Section Distance
+        </th>
+    </tr>
+
+    @foreach (var item in Model.sections)
+    {
+        <tr>
+            <td>
+                Route Section
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sectionStart)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sectionEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sectionDistance)
+            </td>
+            @*<td>
+                    @Html.ActionLink("Edit", "EditSection", new { id = item.sectionID })
+                </td>*@
+        </tr>
+
+        foreach (var itemPOI in item.PointOfInterests)
+        {
+            <tr>
+                <td>
+                    Point Of Interest:
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItemPOI => itemPOI.POI_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItemPOI => itemPOI.POI_Information)
+                </td>
+                <td></td>
+            </tr>
+        }
+
+        <tr><td></td><td></td><td></td><td></td></tr>
+    }
+
+</table>
+
+
+

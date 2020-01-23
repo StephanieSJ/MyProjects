@@ -1,0 +1,75 @@
+﻿@model Project.Models.Challenge
+@{
+    ViewBag.Title = "SelectedJoinChallenge";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>Join Challenge</h2>
+<h3>Are you sure you want to join this challenge?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Challenge
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeName)
+        </dd>
+        <dt>
+            Description
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeDescription)
+        </dd>
+        <dt>
+            Distance
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeDistance)
+        </dd>
+        <dt>
+            Starting Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeTimeStart)
+        </dd>
+        <dt>
+            Ending Time
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeTimeEnd)
+        </dd>
+        <dt>
+            Gender
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeGender)
+        </dd>
+        <dt>
+            Lowest age limit
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeAgeLowerBound)
+        </dd>
+        <dt>
+            Highest age limit
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.challengeAgeUpperBound)
+        </dd>
+        <dt>
+            Achievement
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Achievement.achievementName)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Join" class="btn btn-default" /> |
+            @Html.ActionLink("Back", "JoinChallenge")
+        </div>
+    }
+</div>
