@@ -1,0 +1,13 @@
+Ascii-Heroes:
+I made this game in my first year of university before I had learnt much about C#.
+The main reason for this game was to try and create a game which could run entirely in the C# console.
+I am pretty happy with how it turned out considering I was still learning C# at the time.
+
+CS-Walk-A-Thon-App:
+This was a website which I worked on for my 3rd year project. Unfortunately, due to special circumstances during that year, we
+were unable to choose our own topic for our project and were stuck selecting from about 4 topics which were pretty boring.
+The website itself is meant to be a distance logger to basically see how long it would take a person to walk various routes
+just using their daily distances.
+I worked on the main dashboard and the actual distance logger page and I am pretty happy with my work however
+the other sections were a little weird since the other members of my group were not good at working with proper
+deadlines and also didn't know how to use Git properly preventing me from helping them.

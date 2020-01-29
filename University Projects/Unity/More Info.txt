@@ -1,0 +1,3 @@
+RvZ:
+Rhino's vs Zombies was a project we slowly were adding to as part of one of our courses. It was meant to help teach us some basic
+Unity development as well as Blender and animation.
